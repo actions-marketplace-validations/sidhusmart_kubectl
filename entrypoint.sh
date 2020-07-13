@@ -2,7 +2,13 @@
 
 set -e
 
-# Export the KUBECONFIG directly from the provided input value
-export KUBECONFIG="$KUBE_CONFIG_DATA"
+# Extract the base64 encoded config data and write this to the KUBECONFIG
+if [ -z "$UNCODED" ]
+then
+    export KUBECONFIG = "$KUBE_CONFIG_DATA"
+else
+    echo "$KUBE_CONFIG_DATA" | base64 --decode > /tmp/config
+    export KUBECONFIG=/tmp/config
+fi
 
-sh -c "kubectl${KUBECTL_VERSION:+.${KUBECTL_VERSION}} set image --record textblueprints/sentiment-app:$*"
+sh -c "kubectl${KUBECTL_VERSION:+.${KUBECTL_VERSION}} $*"
