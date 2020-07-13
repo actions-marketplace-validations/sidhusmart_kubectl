@@ -32,11 +32,13 @@ jobs:
 
 ## Secrets
 
+
 `KUBE_CONFIG_DATA` – **required**: A base64-encoded kubeconfig file with credentials for Kubernetes to access the cluster. You can get it by running the following command:
 
 ```bash
 cat $HOME/.kube/config | base64
 ```
+`UNCODED` - : (optional) Indicates whether the kubeconfig file is base64 encoded
 
 ## Environment
 
