@@ -38,7 +38,7 @@ jobs:
 ```bash
 cat $HOME/.kube/config | base64
 ```
-`UNCODED` - : (optional) Indicates whether the kubeconfig file is base64 encoded
+`UNCODED` - (optional) Indicates whether the kubeconfig file is base64 encoded
 
 ## Environment
 
