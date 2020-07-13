@@ -3,7 +3,7 @@
 set -e
 
 # Extract the base64 encoded config data and write this to the KUBECONFIG
-if [ -z "$UNCODED" ]
+if [ "$UNCODED" ]
 then
     export KUBECONFIG = "$KUBE_CONFIG_DATA"
 else
