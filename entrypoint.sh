@@ -2,8 +2,7 @@
 
 set -e
 
-# Do not try to decode the KUBE_CONFIG_DATA and write this to the KUBECONFIG
-echo "$KUBE_CONFIG_DATA" > /tmp/config
-export KUBECONFIG=/tmp/config
+# Export the KUBECONFIG directly from the provided input value
+export KUBECONFIG="$KUBE_CONFIG_DATA"
 
 sh -c "kubectl${KUBECTL_VERSION:+.${KUBECTL_VERSION}} $*"
